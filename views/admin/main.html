@@ -1,0 +1,91 @@
+{{.LayoutContent}}
+<body class="index">
+<!-- 顶部开始 -->
+<div class="container">
+    <div class="logo">
+        <a href="/admin/index">权限管理平台</a></div>
+    <ul class="layui-nav right" lay-filter="">
+        <li class="layui-nav-item to-index">
+            <a href="/admin/logout">退出</a></dd>
+        </li>
+    </ul>
+</div>
+
+<div class="left-nav">
+    <div id="side-nav">
+        <ul id="nav">
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont left-nav-li" lay-tips="标签管理">&#xe723;</i>
+                    <cite>标签管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a onclick="xadmin.add_tab('标签列表','/tag/list')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>标签列表</cite></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont left-nav-li" lay-tips="文章管理">&#xe723;</i>
+                    <cite>文章管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a onclick="xadmin.add_tab('文章列表','/article/list')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>文章列表</cite></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont left-nav-li" lay-tips="管理员管理">&#xe723;</i>
+                    <cite>管理员管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a onclick="xadmin.add_tab('管理员列表','/admin/list')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>管理员列表</cite></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont left-nav-li" lay-tips="其它">&#xe723;</i>
+                    <cite>其它</cite>
+                    <i class="iconfont nav_right">&#xe697;</i></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a onclick="xadmin.add_tab('个人简介','/profile/list')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>个人简介</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('友情链接','/links/list')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>友情链接</cite></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="page-content">
+    <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+        <ul class="layui-tab-title">
+            <li class="home">
+                <i class="layui-icon">&#xe68e;</i>我的桌面</li></ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <iframe src='./welcome.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

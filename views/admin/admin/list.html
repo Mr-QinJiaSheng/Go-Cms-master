@@ -1,0 +1,40 @@
+{{.LayoutContent}}
+{{.nav}}
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    <!--<button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>-->
+                    <button class="layui-btn" onclick="xadmin.open('添加管理员','/admin/add',700,500)"><i class="layui-icon"></i>添加</button>
+                </div>
+                <div class="layui-card-body ">
+                    <table class="layui-table layui-form">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>姓名</th>
+                            <th>等级</th>
+                            <th>状态</th>
+                            <th>添加时间</th>
+                            <th>操作</th>
+                        </thead>
+                        <tbody>
+                        {{range .adminList}}
+                            <tr>
+                                <td>{{.Id}}</td>
+                                <td>{{.Name}}</td>
+                                <td>{{index $.adminLevelMap .Grade}}</td>
+                                <td>{{index $.statusMap .Status}}</td>
+                                <td>{{.CreateTime}}</td>
+                                <td class="td-manage">
+                                    <a title="编辑"  onclick="xadmin.open('编辑','/admin/edit?id={{.Id}}')" href="javascript:;">
+                                        <i class="layui-icon">&#xe642;</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {{end}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+{{.footer}}

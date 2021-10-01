@@ -1,0 +1,43 @@
+{{.LayoutContent}}
+{{.nav}}
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    {{if eq .num 0 }}
+                    <button class="layui-btn" onclick="xadmin.open('添加个人简介','/profile/add',700,500)"><i class="layui-icon"></i>添加</button>
+                    {{end}}
+                </div>
+                <div class="layui-card-body ">
+                    <table class="layui-table layui-form">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>昵称</th>
+                            <th>座右铭</th>
+                            <th>头像</th>
+                            <th>状态</th>
+                            <th>添加时间</th>
+                            <th>操作</th>
+                        </thead>
+                        <tbody>
+                        {{range .profileList}}
+                            <tr>
+                                <td>{{.Id}}</td>
+                                <td>{{.Nickname}}</td>
+                                <td>{{.Motto}}</td>
+                                <td><img src="{{.WxQqImg}}" /></td>
+                                <td>{{index $.statusMap .Status}}</td>
+                                <td>{{.CreateTime}}</td>
+                                <td class="td-manage">
+                                    <a title="编辑"  onclick="xadmin.open('编辑个人简介','/profile/edit?id={{.Id}}')" href="javascript:;">
+                                        <i class="layui-icon">&#xe642;</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {{end}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+{{.footer}}

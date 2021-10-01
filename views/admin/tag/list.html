@@ -1,0 +1,39 @@
+{{.LayoutContent}}
+{{.nav}}
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    <button class="layui-btn" onclick="xadmin.open('添加标签','/tag/add',700,500)"><i class="layui-icon"></i>添加</button>
+                </div>
+                <div class="layui-card-body ">
+                    <table class="layui-table layui-form">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>标签名</th>
+                            <th>数量</th>
+                            <th>状态</th>
+                            <th>添加时间</th>
+                            <th>操作</th>
+                        </thead>
+                        <tbody>
+                        {{range .tagList}}
+                            <tr>
+                                <td>{{.Id}}</td>
+                                <td>{{.Name}}</td>
+                                <td>{{.Total}}</td>
+                                <td>{{index $.statusMap .Status}}</td>
+                                <td>{{.CreateTime}}</td>
+                                <td class="td-manage">
+                                    <a title="编辑"  onclick="xadmin.open('编辑标签','/tag/edit?id={{.Id}}')" href="javascript:;">
+                                        <i class="layui-icon">&#xe642;</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {{end}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+{{.footer}}
